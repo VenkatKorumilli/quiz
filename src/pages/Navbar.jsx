@@ -100,38 +100,40 @@ const Navbar = () => {
             />
           </div>
           {isMobile && open && (
-            <div className="absolute right-2 mt-2 w-40 bg-white shadow-lg rounded-lg p-2 z-50">
-              <Link
-                className="block px-4 py-2 rounded hover:bg-gray-100"
-                onClick={() => setOpen(false)}
-              >
-                Dashboard
-              </Link>
+  <div className="absolute right-2 mt-2 w-40 bg-white shadow-lg rounded-lg p-2 z-50">
+    
+    <Link
+      to={`/dashboard/${userId}`}
+      className="block px-4 py-2 rounded hover:bg-gray-100"
+      onClick={() => setOpen(false)}
+    >
+      Dashboard
+    </Link>
 
-              <div>
-                {!token && (
-                  <Link
-                    to={"/login"}
-                    className="block px-4 py-2 rounded hover:bg-gray-100"
-                  >
-                    Login
-                  </Link>
-                )}
-              </div>
-              <div>
-                {token && (
-                  <button
-                    onClick={() => {
-                      logout();
-                    }}
-                    className="block px-4 py-2 rounded hover:bg-gray-100"
-                  >
-                    Logout
-                  </button>
-                )}
-              </div>
-            </div>
-          )}
+    {!token && (
+      <Link
+        to={"/login"}
+        className="block px-4 py-2 rounded hover:bg-gray-100"
+        onClick={() => setOpen(false)}
+      >
+        Login
+      </Link>
+    )}
+
+    {token && (
+      <button
+        onClick={() => {
+          logout();
+          setOpen(false);
+        }}
+        className="block px-4 py-2 rounded hover:bg-gray-100"
+      >
+        Logout
+      </button>
+    )}
+  </div>
+)}
+
         </>
       )}
     </div>
