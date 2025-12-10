@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const quizApi = createApi({
   reducerPath: "quizApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:4500" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://vk-quiz-backend-1-6trc.onrender.com" }),
   endpoints: (builder) => ({
     getAllQuestions: builder.query({
       query: (category) => `/getAllQuestions/${category}`,
